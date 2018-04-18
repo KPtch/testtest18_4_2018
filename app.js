@@ -47,7 +47,7 @@ bot.dialog('/', function (session) {
     
     var req = session.message.text;
     if(req){
-        timeout(req);
+        session.send("ok");
 //        setTimeout(function(){ 
 //              session.send("ok");
 //        }, 500);
