@@ -39,12 +39,15 @@ var timeout = undefined;
 
 var msg = server.post('api/messages', connector.listen());
 
-
+function timeout(text) {
+	
+    setTimeout(function(){ session.send(text); }, 500);
+}
 bot.dialog('/', function (session) {
     
     var req = session.message.text;
     if(req){
-        session.send("ok");
+        timeout(req);
 //        setTimeout(function(){ 
 //              session.send("ok");
 //        }, 500);
