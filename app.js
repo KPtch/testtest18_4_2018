@@ -9,10 +9,7 @@ firebase.initializeApp({
 
 var ref = firebase.database().ref();
 
-ref.on("value", function (snapshot) {
-    data  = snapshot.val();
-    console.log(data);
-});
+
 
 //--------------
 
@@ -43,7 +40,13 @@ var msg = server.post('api/messages', connector.listen());
 bot.dialog('/', function (session) {
     
     var req = session.message.text;
-    session.send("ok");
+    setTimeout(function(){ 
+        ref.on("value", function (snapshot) {
+            data  = snapshot.val();
+//     console.log(data);
+        });
+        session.send("ok"+data) 
+    }, 500);
 
 
     // var resKey = null;
