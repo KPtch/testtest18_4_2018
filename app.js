@@ -44,9 +44,10 @@ bot.dialog('/', function (session) {
     
     var req = session.message.text;
     if(req){
-       setTimeout(function(){ 
-             session.send("ok");
-       }, 500);
+        session.send("ok");
+//        setTimeout(function(){ 
+//              session.send("ok");
+//        }, 500);
     }
 
     // var resKey = null;
