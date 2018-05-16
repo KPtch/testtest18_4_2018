@@ -92,12 +92,13 @@ bot.dialog('/',function (session) {
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
 
-            var msg = new builder.Message(session).attachments([hCard]);
-            session.send(msg);
+                    var msg = new builder.Message(session).attachments([hCard]);
+                    session.send(msg);
+                    break;
                 }
             }             
         });  
-        break;
+        
         
     }
 //     else if(resKey1){
