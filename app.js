@@ -82,13 +82,14 @@ bot.dialog('/',function (session) {
         
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
-            
+            session.send('kuy');
             for(var i=0;i<dddd.length; i++){
                 if(data1[resKey]==dddd[i].key){
+                    session.send('123456789');
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
 
