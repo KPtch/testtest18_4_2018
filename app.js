@@ -78,8 +78,7 @@ bot.dialog('/',function (session) {
         
 //     }
     session.send(resKey);
-    if(resKey){
-        var hCard = new builder.HeroCard(session)
+    var hCard = new builder.HeroCard(session)
               .title('ต้องการเอกสารนี้ใช่ไหม?')
               .buttons([
                   builder.CardAction.openUrl(session, '1234', 'ใบ'),
@@ -87,6 +86,8 @@ bot.dialog('/',function (session) {
               ]);
         var msg = new builder.Message(session).attachments([hCard]);
         session.send(msg);
+    if(resKey){
+        
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
             
