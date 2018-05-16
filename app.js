@@ -77,8 +77,8 @@ bot.dialog('/',function (session) {
           .title('เอกสาร!')
           .buttons([
 
-              builder.CardAction.imBack(session, 'Billable', 'Billable'),
-              builder.CardAction.imBack(session, 'Non-Billable', 'Non-Billable')
+              builder.CardAction.imBack(session, 'Billable1234', 'Billable'),
+              builder.CardAction.imBack(session, 'Non-Billable12345', 'Non-Billable')
           ]);
 
     var msg = new builder.Message(session).attachments([hCard]);
@@ -107,6 +107,20 @@ bot.dialog('/',function (session) {
         }
         
     }
+//     var resKey1 = null;
+//     var keys1 = Object.keys(data2);
+//     for(var i=0; i<keys1.length; i++){
+        
+//         var key = keys1[i];
+//         // session.send(key);
+//         // session.send("-------------------------------------------------");
+//         var regex = new RegExp(key);
+//         if(req.match(regex)){
+//             resKey1 = key;       
+//             break;
+//         }
+        
+//     }
     session.send(resKey);
     if(resKey){
         var s = 'นี้จ้า'+"\n";
@@ -122,7 +136,11 @@ bot.dialog('/',function (session) {
         session.send(s+data1[resKey]);    
         
         
-    } else {
+    }
+//     else if(resKey1){
+        
+//     }
+    else {
         
         var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
         question.forEach(function(questions,index){
