@@ -79,8 +79,8 @@ var builder     = require('botbuilder');
 var data1        = require('./respond.json');
 var question    = require('./question.json');
 var firebase    = require('firebase');
-//var fbTemplate = require('fb-message-builder');
-var fbTemplate = Builder.fbTemplate; 
+var fbTemplate = require('fb-message-builder');
+var bbnt = builder.fbTemplate; 
 
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function(){
@@ -117,7 +117,7 @@ bot.dialog('/',function (session) {
       .get();
     
     // session.send("-------------------------------------------------");
-     session.send("bnt");
+     session.send(bnt);
     
     
 
