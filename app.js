@@ -45,7 +45,7 @@ bot.dialog('/',function (session) {
     
     // session.send("-------------------------------------------------");
 //     session.send(bnt);
-    var ggg= 'ใบลา';
+    
     var hCard = new builder.HeroCard(session)
           .title('ต้องการเอกสารนี้ใช่ไหม?')
           .buttons([
@@ -96,18 +96,25 @@ bot.dialog('/',function (session) {
 //     }
     session.send(resKey);
     if(resKey){
-        var s = 'นี้จ้า'+"\n";
+        
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
             
-            session.send(dddd[0].link);
-        
-            if(data1[resKey]==dddd[10].key){
-                session.send(s+dddd[10].link);
-            }
-        });
-        session.send(s+data1[resKey]);    
-        
+            for(var i=0;i<dddd.length; i++){
+                if(data1[resKey]==dddd[i].key){
+                    var hCard = new builder.HeroCard(session)
+                          .title('ต้องการเอกสารนี้ใช่ไหม?')
+                          .buttons([
+                              builder.CardAction.openUrl(session, dddd[i].link, dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                          ]);
+
+            var msg = new builder.Message(session).attachments([hCard]);
+            session.send(msg);
+                }
+            }             
+        });  
+        break;
         
     }
 //     else if(resKey1){
