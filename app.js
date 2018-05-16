@@ -79,8 +79,8 @@ var builder     = require('botbuilder');
 var data1        = require('./respond.json');
 var question    = require('./question.json');
 var firebase    = require('firebase');
-const botBuilder = require('claudia-bot-builder');
-const fbTemplate = botBuilder.fbTemplate;
+// const botBuilder = require('claudia-bot-builder');
+// const fbTemplate = botBuilder.fbTemplate;
 
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function(){
@@ -110,14 +110,14 @@ bot.dialog('/',function (session) {
     
     
     
-    var bnt = new fbTemplate.Button('How are you?')
-      .addButton('Awesome', 'AWESOME')
-      .addButton('Great', 'GREAT')
-      .addButton('ðŸŽµðŸŽµðŸŽµ', 'https://youtu.be/m5TwT69i1lU')
-      .get();
+//     var bnt = new fbTemplate.Button('How are you?')
+//       .addButton('Awesome', 'AWESOME')
+//       .addButton('Great', 'GREAT')
+//       .addButton('ðŸŽµðŸŽµðŸŽµ', 'https://youtu.be/m5TwT69i1lU')
+//       .get();
     
-    // session.send("-------------------------------------------------");
-     session.send(bnt);
+//     // session.send("-------------------------------------------------");
+//      session.send(bnt);
     
     
 
