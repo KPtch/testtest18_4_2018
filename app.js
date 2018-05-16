@@ -82,7 +82,14 @@ bot.dialog('/',function (session) {
         
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
-            
+            var hCard = new builder.HeroCard(session)
+                  .title('ต้องการเอกสารนี้ใช่ไหม?')
+                  .buttons([
+                      builder.CardAction.openUrl(session, dddd[0].link, 'ใบ'+dddd[0].key),
+                      builder.CardAction.openUrl(session, dddd[0].comment, 'คำแนะนำ')
+                  ]);
+            var msg = new builder.Message(session).attachments([hCard]);
+            session.send(msg);
             for(var i=0;i<dddd.length; i++){
                 if(data1[resKey]==dddd[i].key){                    
                     var hCard = new builder.HeroCard(session)
