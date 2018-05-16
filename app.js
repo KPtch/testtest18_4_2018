@@ -77,8 +77,8 @@ bot.dialog('/',function (session) {
           .title('เอกสาร!')
           .buttons([
 
-              builder.CardAction.imBack(session, 'Billable1234', 'Billable'),
-              builder.CardAction.imBack(session, 'Non-Billable12345', 'Non-Billable')
+              builder.CardAction.imBack(session, 'golf', 'Billable'),
+              builder.CardAction.imBack(session, '60lf', 'Non-Billable')
           ]);
 
     var msg = new builder.Message(session).attachments([hCard]);
