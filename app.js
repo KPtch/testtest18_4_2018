@@ -4,6 +4,7 @@
 var restify     = require('restify');
 var builder     = require('botbuilder');
 var data1        = require('./respond.json');
+var data2        = require('./Case3.json');
 var question    = require('./question.json');
 var firebase    = require('firebase');
 // const botBuilder = require('claudia-bot-builder');
@@ -48,8 +49,8 @@ bot.dialog('/',function (session) {
     var hCard = new builder.HeroCard(session)
           .title('ต้องการเอกสารนี้ใช่ไหม?')
           .buttons([
-              builder.CardAction.openUrl(session, '1234', 'ใบ'),
-              builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
+              builder.CardAction.imBack(session, '1234', 'ใบ'),
+              builder.CardAction.imBack(session, '1234', 'คำแนะนำ')
           ]);
     var msg = new builder.Message(session).attachments([hCard]);
     session.send(msg);
@@ -93,18 +94,18 @@ bot.dialog('/',function (session) {
             
             for(var i=0;i<dddd.length; i++){
                 if(data1[resKey]==dddd[i].key){                    
-//                     var hCard = new builder.HeroCard(session)
-//                           .title('ต้องการเอกสารนี้ใช่ไหม?')
-//                           .buttons([
-//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-//                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-//                           ]);
-//                     var msg = new builder.Message(session).attachments([hCard]);
-//                     session.send(msg);
-                    var links = dddd[i].link;
-                    var comments = dddd[i].comment;
-                    var kk = dddd[i].key;
-                    session.send(links);
+                    var hCard = new builder.HeroCard(session)
+                          .title('ต้องการเอกสารนี้ใช่ไหม?')
+                          .buttons([
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                          ]);
+                    var msg = new builder.Message(session).attachments([hCard]);
+                    session.send(msg);
+//                     var links = dddd[i].link;
+//                     var comments = dddd[i].comment;
+//                     var kk = dddd[i].key;
+//                     session.send(links);
                 }                
             }           
         });  
