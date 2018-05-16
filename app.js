@@ -82,8 +82,8 @@ bot.dialog('/',function (session) {
         var hCard = new builder.HeroCard(session)
               .title('ต้องการเอกสารนี้ใช่ไหม?')
               .buttons([
-                  builder.CardAction.openUrl(session, dddd[0].link, 'ใบ'+dddd[0].key),
-                  builder.CardAction.openUrl(session, dddd[0].comment, 'คำแนะนำ')
+                  builder.CardAction.openUrl(session, '1234', 'ใบ'),
+                  builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
               ]);
         var msg = new builder.Message(session).attachments([hCard]);
         session.send(msg);
