@@ -46,11 +46,11 @@ bot.dialog('/',function (session) {
     // session.send("-------------------------------------------------");
 //     session.send(bnt);
     var hCard = new builder.HeroCard(session)
-              .title('ต้องการเอกสารนี้ใช่ไหม?')
-              .buttons([
-                  builder.CardAction.openUrl(session, '1234', 'ใบ'),
-                  builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
-              ]);
+          .title('ต้องการเอกสารนี้ใช่ไหม?')
+          .buttons([
+              builder.CardAction.openUrl(session, '1234', 'ใบ'),
+              builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
+          ]);
     var msg = new builder.Message(session).attachments([hCard]);
     session.send(msg);
     
@@ -101,9 +101,12 @@ bot.dialog('/',function (session) {
 //                           ]);
 //                     var msg = new builder.Message(session).attachments([hCard]);
 //                     session.send(msg);
-                    break;
-                }
-            }             
+                    var links = dddd[i].link;
+                    var comments = dddd[i].comment;
+                    var kk = dddd[i].key;
+                    session.send(links);
+                }                
+            }           
         });  
         
         
