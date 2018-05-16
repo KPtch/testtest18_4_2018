@@ -35,35 +35,7 @@ var ref = firebase.database().ref();
 
 
 bot.dialog('/',function (session) {
-    
-//     var bnt = {
-//         "attachment":{
-//             "type":"template",
-//             "payload":{
-//             "template_type":"button",
-//             "text":"เอกสารที่คุณต้องการ ?",
-//             "buttons":[
-//                   {
-//                     "type":"web_url",
-//                     "url":"https://www.messenger.com",
-//                     "title":"Visit Messenger"
-//                   },
-//                   {
-//                     "type":"web_url",
-//                     "url":"https://www.messenger.com",
-//                     "title":"Visit Messenger"
-//                   },
-//                   {
-//                     "type":"web_url",
-//                     "url":"https://www.messenger.com",
-//                     "title":"Visit Messenger"
-//                   }
-//              ]
-//              }
-//         }
 
-//     }"https://graph.facebook.com/v2.6/me/messages?access_token=EAABvEnIm4YkBAD3fr1WZCAX8nd8GAhrpZC7tf1dNpnUovg4luVRCtp6p0bVunu01oYlnudF7DD0IQZCzg25ZCNW2E0kAuMb9MQyz1cuS7suZAVHCN0RdZBEW9vb74iPGSZA8enVLotOAIDJh79HXNkEUK4rBXDa80EzomBJOsHxvHjfZAhZCFc7Im"
-    
     
 //     var bnt = new fbTemplate.Button('How are you?')
 //       .addButton('Awesome', 'AWESOME')
@@ -73,12 +45,13 @@ bot.dialog('/',function (session) {
     
     // session.send("-------------------------------------------------");
 //     session.send(bnt);
+    var ggg= 'ใบลา';
     var hCard = new builder.HeroCard(session)
-          .title('เอกสาร!')
+          .title('ต้องการเอกสารนี้ใช่ไหม?')
           .buttons([
 
-              builder.CardAction.imBack(session, 'golf', 'Billable'),
-              builder.CardAction.imBack(session, '60lf', 'Non-Billable')
+              builder.CardAction.openUrl(session, 'https://www.facebook.com/', ggg),
+              builder.CardAction.openUrl(session, 'https://www.youtube.com/', 'คำแนะนำ')
           ]);
 
     var msg = new builder.Message(session).attachments([hCard]);
