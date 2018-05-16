@@ -49,8 +49,8 @@ bot.dialog('/',function (session) {
     var hCard = new builder.HeroCard(session)
           .title('ต้องการเอกสารนี้ใช่ไหม?')
           .buttons([
-              builder.CardAction.imBack(session, '1234', 'ใบ'),
-              builder.CardAction.imBack(session, '1234', 'คำแนะนำ')
+              builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'ใบ'),
+              builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
           ]);
     var msg = new builder.Message(session).attachments([hCard]);
     session.send(msg);
