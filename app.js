@@ -84,8 +84,8 @@ bot.dialog('/',function (session) {
                   builder.CardAction.openUrl(session, '1234', 'ใบ'),
                   builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
               ]);
-        var msg = new builder.Message(session).attachments([hCard]);
-        session.send(msg);
+    var msg = new builder.Message(session).attachments([hCard]);
+    session.send(msg);
     if(resKey){
         
         ref.on("value", function (snapshot) {
@@ -93,14 +93,14 @@ bot.dialog('/',function (session) {
             
             for(var i=0;i<dddd.length; i++){
                 if(data1[resKey]==dddd[i].key){                    
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-                          ]);
-                    var msg = new builder.Message(session).attachments([hCard]);
-                    session.send(msg);
+//                     var hCard = new builder.HeroCard(session)
+//                           .title('ต้องการเอกสารนี้ใช่ไหม?')
+//                           .buttons([
+//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+//                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+//                           ]);
+//                     var msg = new builder.Message(session).attachments([hCard]);
+//                     session.send(msg);
                     break;
                 }
             }             
