@@ -71,14 +71,7 @@ bot.dialog('/',function (session) {
         }
         
     }
-    var hCard = new builder.HeroCard(session)
-          .title('ต้องการเอกสารนี้ใช่ไหม?')
-          .buttons([
-              builder.CardAction.imBack(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'ใบ'),
-              builder.CardAction.imBack(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
-          ]);
-    var msg = new builder.Message(session).attachments([hCard]);
-    session.send(msg);
+    
 //     var resKey1 = null;
 //     var keys1 = Object.keys(data2);
 //     for(var i=0; i<keys1.length; i++){
@@ -105,8 +98,8 @@ bot.dialog('/',function (session) {
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
