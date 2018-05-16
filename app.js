@@ -45,7 +45,14 @@ bot.dialog('/',function (session) {
     
     // session.send("-------------------------------------------------");
 //     session.send(bnt);
-    
+    var hCard = new builder.HeroCard(session)
+              .title('ต้องการเอกสารนี้ใช่ไหม?')
+              .buttons([
+                  builder.CardAction.openUrl(session, '1234', 'ใบ'),
+                  builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
+              ]);
+    var msg = new builder.Message(session).attachments([hCard]);
+    session.send(msg);
     
     var req = session.message.text;
     // session.send(req);
@@ -78,14 +85,7 @@ bot.dialog('/',function (session) {
         
 //     }
     session.send(resKey);
-    var hCard = new builder.HeroCard(session)
-              .title('ต้องการเอกสารนี้ใช่ไหม?')
-              .buttons([
-                  builder.CardAction.openUrl(session, '1234', 'ใบ'),
-                  builder.CardAction.openUrl(session, '1234', 'คำแนะนำ')
-              ]);
-    var msg = new builder.Message(session).attachments([hCard]);
-    session.send(msg);
+    
     if(resKey){
         
         ref.on("value", function (snapshot) {
