@@ -68,7 +68,7 @@ function sendButton(session,req){
      });  
 }
 
-bot.dialog('/',function (session) {
+bot.dialog('/',[function (session) {
 
     
 //     var bnt = new fbTemplate.Button('How are you?')
@@ -146,4 +146,8 @@ bot.dialog('/',function (session) {
         session.send(res);
     }           
            
-});
+},
+    function(session, results){
+        
+    }
+]);
