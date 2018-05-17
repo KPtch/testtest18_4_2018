@@ -103,6 +103,7 @@ bot.dialog('/',function (session) {
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
+                    session.beginDialog('/');
 //                     var links = dddd[i].link;
 //                     var comments = dddd[i].comment;
 //                     var kk = dddd[i].key;
