@@ -108,18 +108,15 @@ bot.dialog('/',[function (session) {
         break;
     }
     else if(resKey1){
-        var bai={'ใบลา','ใบขอลาออก','ใบขอลาพักการศึกษา'};
-        var sob={'ใบขอสอบชดใช้','ใบขอสอบชดใช้กรณีป่วย'};
-        var teab={'ใบขอเทียบโอนรายวิชา','ใบขอเทียบรายวิชา'};
         switch(resKey1) {
             case 'ใบลา':
-                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", bai);
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
                 break;
             case 'สอบ':
-                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", sob);
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอสอบชดใช้","ใบขอสอบชดใช้กรณีป่วย"]);
                 break;
             case 'เทียบ':
-                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", teab);
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอเทียบโอนรายวิชา","ใบขอเทียบรายวิชา"]);
                 break;
             default:
                 break;
