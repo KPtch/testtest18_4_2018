@@ -34,6 +34,23 @@ firebase.initializeApp({
 
 var ref = firebase.database().ref();
 
+function resKeys(req){
+    var resKey = null;
+    var keys = Object.keys(data1);
+    for(var i=0; i<keys.length; i++){
+        
+        var key = keys[i];
+        var regex = new RegExp(key);
+        if(req.match(regex)){
+            resKey = key;       
+            return resKey;
+        }
+        
+    }
+}
+// function sendButton(req){
+    
+// }
 
 bot.dialog('/',function (session,results) {
 
@@ -62,25 +79,22 @@ bot.dialog('/',function (session,results) {
     
     
     var req = session.message.text;
-    if(results.response || results.response.entity){
-        req=JSON.stringify(results.response.entity);
-        session.send(req);
-    }
+    var resKey = resKeys(req);
     // session.send(req);
-    var resKey = null;
-    var keys = Object.keys(data1);
-    for(var i=0; i<keys.length; i++){
+//     var resKey = null;
+//     var keys = Object.keys(data1);
+//     for(var i=0; i<keys.length; i++){
         
-        var key = keys[i];
-        // session.send(key);
-        // session.send("-------------------------------------------------");
-        var regex = new RegExp(key);
-        if(req.match(regex)){
-            resKey = key;       
-            break;
-        }
+//         var key = keys[i];
+//         // session.send(key);
+//         // session.send("-------------------------------------------------");
+//         var regex = new RegExp(key);
+//         if(req.match(regex)){
+//             resKey = key;       
+//             break;
+//         }
         
-    }
+//     }
     
 //     var resKey1 = null;
 //     var keys1 = Object.keys(data2);
@@ -114,10 +128,6 @@ bot.dialog('/',function (session,results) {
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
                     
-//                     var links = dddd[i].link;
-//                     var comments = dddd[i].comment;
-//                     var kk = dddd[i].key;
-//                     session.send(links);
                 }                
             }           
         });  
