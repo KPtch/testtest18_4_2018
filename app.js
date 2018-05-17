@@ -83,7 +83,7 @@ function sendButton(session,req){
      });  
 }
 
-bot.dialog('/',[function (session) {
+bot.dialog('/',function (session) {
     
 //     var hCard = new builder.HeroCard(session)
 //           .title('ต้องการเอกสารนี้ใช่ไหม?')
@@ -131,13 +131,13 @@ bot.dialog('/',[function (session) {
         });
         session.send(res);
     }           
-           
-},
-    function(session, results){
-        if (results.response) {
-            var req = results.response.entity;
-            sendButton(session,req);
-            break;
-        }
-    }
-]);
+});           
+// },
+//     function(session, results){
+//         if (results.response) {
+//             var req = results.response.entity;
+//             sendButton(session,req);
+//             break;
+//         }
+//     }
+// ]);
