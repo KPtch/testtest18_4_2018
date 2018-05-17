@@ -108,9 +108,9 @@ bot.dialog('/',[function (session) {
         break;
     }
     else if(resKey1){
-        var bai={};
-        var sob;
-        var teab;
+        var bai={'ใบลา','ใบขอลาออก','ใบขอลาพักการศึกษา'};
+        var sob={'ใบขอสอบชดใช้','ใบขอสอบชดใช้กรณีป่วย'};
+        var teab={'ใบขอเทียบโอนรายวิชา','ใบขอเทียบรายวิชา'};
         switch(resKey1) {
             case 'ใบลา':
                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", bai);
