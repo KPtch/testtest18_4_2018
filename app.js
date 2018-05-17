@@ -35,7 +35,7 @@ firebase.initializeApp({
 var ref = firebase.database().ref();
 
 
-bot.dialog('/',function (session) {
+bot.dialog('/',function (session,results) {
 
     
 //     var bnt = new fbTemplate.Button('How are you?')
@@ -62,8 +62,8 @@ bot.dialog('/',function (session) {
     
     
     var req = session.message.text;
-    if(session.postback){
-        req=JSON.stringify(session.postback);
+    if(results){
+        req=JSON.stringify(results);
         session.send(req);
     }
     // session.send(req);
