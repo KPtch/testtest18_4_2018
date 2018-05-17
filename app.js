@@ -61,7 +61,7 @@ function sendButton(req){
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
-                    session.send(msg);
+                    return msg;
                     
                 }                
             }           
@@ -130,8 +130,8 @@ bot.dialog('/',function (session) {
     
     if(resKey){
         
-        sendButton(resKey);
-        
+        var msg = sendButton(resKey);
+        session.send(msg);
     }
 //     else if(resKey1){
         
