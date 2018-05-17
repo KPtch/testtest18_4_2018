@@ -48,6 +48,20 @@ function resKeys(req){
         
     }
 }
+function resKeys1(req){
+    var resKey1 = null;
+    var keys1 = Object.keys(data2);
+    for(var i=0; i<keys1.length; i++){
+        
+        var key = keys1[i];
+        var regex = new RegExp(key);
+        if(req.match(regex)){
+            resKey1 = key;       
+            return resKey1;
+        }
+        
+    }
+}
 function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
@@ -59,6 +73,7 @@ function sendButton(session,req){
                           .buttons([
                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
@@ -69,18 +84,6 @@ function sendButton(session,req){
 }
 
 bot.dialog('/',[function (session) {
-
-    
-//     var bnt = new fbTemplate.Button('How are you?')
-//       .addButton('Awesome', 'AWESOME')
-//       .addButton('Great', 'GREAT')
-//       .addButton('ðŸŽµðŸŽµðŸŽµ', 'https://youtu.be/m5TwT69i1lU')
-//       .get();
-    
-    // session.send("-------------------------------------------------");
-//     session.send(bnt);
-    
-     // session.send("-------------------------------------------------");
     
 //     var hCard = new builder.HeroCard(session)
 //           .title('ต้องการเอกสารนี้ใช่ไหม?')
@@ -92,50 +95,36 @@ bot.dialog('/',[function (session) {
 //     session.send(msg);
     
     
-    
-    
     var req = session.message.text;
     var resKey = resKeys(req);
-    // session.send(req);
-//     var resKey = null;
-//     var keys = Object.keys(data1);
-//     for(var i=0; i<keys.length; i++){
-        
-//         var key = keys[i];
-//         // session.send(key);
-//         // session.send("-------------------------------------------------");
-//         var regex = new RegExp(key);
-//         if(req.match(regex)){
-//             resKey = key;       
-//             break;
-//         }
-        
-//     }
+    var resKey1 = resKeys1(req);
     
-//     var resKey1 = null;
-//     var keys1 = Object.keys(data2);
-//     for(var i=0; i<keys1.length; i++){
-        
-//         var key = keys1[i];
-//         // session.send(key);
-//         // session.send("-------------------------------------------------");
-//         var regex = new RegExp(key);
-//         if(req.match(regex)){
-//             resKey1 = key;       
-//             break;
-//         }
-        
-//     }
+
     session.send(resKey);
     
     if(resKey){
         
         sendButton(session,resKey);
-        
+        break;
     }
-//     else if(resKey1){
-        
-//     }
+    else if(resKey1){
+        var bai={};
+        var sob;
+        var teab;
+        switch(resKey1) {
+            case 'ใบลา':
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", bai);
+                break;
+            case 'สอบ':
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", sob);
+                break;
+            case 'เทียบ':
+                builder.Prompts.choice(session, "เลือกใบที่ต้องการ", teab);
+                break;
+            default:
+                break;
+        }
+    }
     else {
         
         var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
@@ -148,6 +137,10 @@ bot.dialog('/',[function (session) {
            
 },
     function(session, results){
-        
+        if (results.response) {
+            var req = results.response.entity;
+            sendButton(session,req);
+            break;
+        }
     }
 ]);
