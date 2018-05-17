@@ -48,11 +48,27 @@ function resKeys(req){
         
     }
 }
-// function sendButton(req){
-    
-// }
+function sendButton(req){
+    ref.on("value", function (snapshot) {
+            var dddd  = snapshot.val();
+            
+            for(var i=0;i<dddd.length; i++){
+                if(data1[resKey]==dddd[i].key){                    
+                    var hCard = new builder.HeroCard(session)
+                          .title('ต้องการเอกสารนี้ใช่ไหม?')
+                          .buttons([
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                          ]);
+                    var msg = new builder.Message(session).attachments([hCard]);
+                    session.send(msg);
+                    
+                }                
+            }           
+     });  
+}
 
-bot.dialog('/',function (session,results) {
+bot.dialog('/',function (session) {
 
     
 //     var bnt = new fbTemplate.Button('How are you?')
@@ -70,7 +86,7 @@ bot.dialog('/',function (session,results) {
 //           .title('ต้องการเอกสารนี้ใช่ไหม?')
 //           .buttons([
 //               builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'ใบ'),
-//               builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
+//               builder.CardAction.postBack(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
 //           ]);
 //     var msg = new builder.Message(session).attachments([hCard]);
 //     session.send(msg);
@@ -114,24 +130,7 @@ bot.dialog('/',function (session,results) {
     
     if(resKey){
         
-        ref.on("value", function (snapshot) {
-            var dddd  = snapshot.val();
-            
-            for(var i=0;i<dddd.length; i++){
-                if(data1[resKey]==dddd[i].key){                    
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
-                              builder.CardAction.postBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.postBack(session, dddd[i].comment, 'คำแนะนำ')
-                          ]);
-                    var msg = new builder.Message(session).attachments([hCard]);
-                    session.send(msg);
-                    
-                }                
-            }           
-        });  
-        
+        sendButton(resKey);
         
     }
 //     else if(resKey1){
