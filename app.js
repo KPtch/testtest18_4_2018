@@ -46,14 +46,20 @@ bot.dialog('/',function (session) {
     
     // session.send("-------------------------------------------------");
 //     session.send(bnt);
-    var hCard = new builder.HeroCard(session)
-          .title('ต้องการเอกสารนี้ใช่ไหม?')
-          .buttons([
-              builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'ใบ'),
-              builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
-          ]);
-    var msg = new builder.Message(session).attachments([hCard]);
-    session.send(msg);
+    
+     // session.send("-------------------------------------------------");
+    
+//     var hCard = new builder.HeroCard(session)
+//           .title('ต้องการเอกสารนี้ใช่ไหม?')
+//           .buttons([
+//               builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'ใบ'),
+//               builder.CardAction.openUrl(session, 'https://www.youtube.com/watch?v=TuhZpAKY7qM', 'คำแนะนำ')
+//           ]);
+//     var msg = new builder.Message(session).attachments([hCard]);
+//     session.send(msg);
+    
+    
+    
     
     var req = session.message.text;
     // session.send(req);
@@ -98,12 +104,12 @@ bot.dialog('/',function (session) {
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.postBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.postBack(session, dddd[i].comment, 'คำแนะนำ')
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
-                    session.beginDialog('/');
+                    
 //                     var links = dddd[i].link;
 //                     var comments = dddd[i].comment;
 //                     var kk = dddd[i].key;
@@ -128,9 +134,3 @@ bot.dialog('/',function (session) {
     }           
            
 });
-
-
-
-
-
-
