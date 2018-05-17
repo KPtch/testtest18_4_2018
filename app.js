@@ -62,6 +62,9 @@ bot.dialog('/',function (session) {
     
     
     var req = session.message.text;
+    if(session.postback){
+        req=JSON.stringify(session.postback);
+    }
     // session.send(req);
     var resKey = null;
     var keys = Object.keys(data1);
