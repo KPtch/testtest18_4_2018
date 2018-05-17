@@ -62,8 +62,8 @@ bot.dialog('/',function (session,results) {
     
     
     var req = session.message.text;
-    if(results){
-        req=JSON.stringify(results);
+    if(results.response){
+        req=JSON.stringify(results.response);
         session.send(req);
     }
     // session.send(req);
