@@ -48,7 +48,7 @@ function resKeys(req){
         
     }
 }
-function sendButton(req){
+function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
             
@@ -61,7 +61,7 @@ function sendButton(req){
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
-                    return msg;
+                    session.send(msg);
                     
                 }                
             }           
@@ -130,8 +130,8 @@ bot.dialog('/',function (session) {
     
     if(resKey){
         
-        var msg = sendButton(resKey);
-        session.send(msg);
+        sendButton(session,resKey);
+        
     }
 //     else if(resKey1){
         
