@@ -154,10 +154,9 @@ bot.dialog('SelectChoice',[
         
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
-            var rrr=results.response.entity;
-            var myJSON = JSON.stringify(rrr);
+            var rrr= resKeys(results.response.entity);
             for(var i=0;i<dddd.length; i++){
-                if(myJSON===dddd[i].key){
+                if(rrr===dddd[i].key){
                     var links=dddd[i].link;
                     var comments=dddd[i].comment;
                     var keys = 'ใบ'+dddd[i].key;
