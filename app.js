@@ -170,8 +170,9 @@ bot.dialog('SelectChoice',[
                     session.send(msg1);
                     
                 }                
-            }           
-     }); 
+            }
+        });
+        session.endDialog();
 //         var req = results.response.entity;
 //         resKeys(req);
 //         sendButton(session,req);
