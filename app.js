@@ -144,7 +144,7 @@ bot.dialog('/',function (session) {
 // ]);
 bot.dialog('SelectChoice',[
     function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", {"ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"});
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลา|ใบขอลาออก|ใบขอลาพักการศึกษา");
     },
     function (session, results) {
         session.endDialog(${results.response});
