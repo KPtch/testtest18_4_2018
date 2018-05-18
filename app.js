@@ -144,7 +144,7 @@ bot.dialog('/',function (session) {
 //         }
 //     }
 // ]);
-bot.dialog('/SelectChoice',[
+bot.dialog('SelectChoice',[
     function (session) {
         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|ใบขอลาออก|ใบขอลาพักการศึกษา", {
             listStyle: builder.ListStyle.button
@@ -163,8 +163,8 @@ bot.dialog('/SelectChoice',[
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, links, keys),
-                              builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
+                              builder.CardAction.postBack(session, links, keys),
+                              builder.CardAction.postBack(session, comments, 'คำแนะนำ')
                           ]);
                     var msg1 = new builder.Message(session).attachments([hCard]);
                     session.send(msg1);
