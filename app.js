@@ -152,6 +152,7 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var req = results.response.entity;
+        resKeys(req);
         sendButton(session,req);
         session.endDialog();
     }
