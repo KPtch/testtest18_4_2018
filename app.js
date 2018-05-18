@@ -67,13 +67,15 @@ function sendButton(session,req){
             var dddd  = snapshot.val();
             
             for(var i=0;i<dddd.length; i++){
-                if(data1[req]==dddd[i].key){                    
+                if(data1[req]==dddd[i].key){
+                    var links=dddd[i].link;
+                    var comments=dddd[i].comment;
+                    var keys = 'ใบ'+dddd[i].key;
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ'),
-                              builder.CardAction.imBack(session, '.....', '.....')
+                              builder.CardAction.openUrl(session, links, keys),
+                              builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
@@ -104,7 +106,7 @@ bot.dialog('/',function (session) {
     
     if(resKey){
 //         session.send(resKey);
-      // sendButton(session,resKey);
+        sendButton(session,resKey);
         session.beginDialog('SelectChoice');
     }
 // //     else if(resKey1){
