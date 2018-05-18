@@ -107,7 +107,7 @@ bot.dialog('/',function (session) {
     if(resKey){
 //         session.send(resKey);
         sendButton(session,resKey);
-        session.beginDialog('SelectChoice');
+//         session.beginDialog('SelectChoice');
     }
 // //     else if(resKey1){
 // //         switch(resKey1) {
@@ -151,9 +151,11 @@ bot.dialog('SelectChoice',[
         });
     },
     function (session, results) {
-        var req = results.response.entity;
-        resKeys(req);
-        sendButton(session,req);
-        session.endDialog();
+        
+//         var req = results.response.entity;
+//         resKeys(req);
+//         sendButton(session,req);
+//         session.endDialog();
+        
     }
 ]);
