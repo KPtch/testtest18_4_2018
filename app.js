@@ -102,11 +102,11 @@ bot.dialog('/',function (session) {
 
     session.send(resKey);
     
-//     if(resKey){
-// //         session.send(resKey);
-//         sendButton(session,resKey);
-//         break;
-//     }
+    if(resKey){
+//         session.send(resKey);
+        sendButton(session,resKey);
+        break;
+    }
 // //     else if(resKey1){
 // //         switch(resKey1) {
 // //             case 'ใบลา':
