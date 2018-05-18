@@ -151,16 +151,16 @@ bot.dialog('SelectChoice',[
         });
     },
     function (session, results) {
-        
+        var rrr= resKeys(results.response.entity);
         ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
-            var rrr= resKeys(results.response.entity);
+            
             for(var i=0;i<dddd.length; i++){
                 if(rrr===dddd[i].key){
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key)
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ'),                             
                           ]);
                         
