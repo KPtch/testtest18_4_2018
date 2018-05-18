@@ -102,35 +102,36 @@ bot.dialog('/',function (session) {
 
     session.send(resKey);
     
-    if(resKey){
-        session.send(resKey);
+//     if(resKey){
+// //         session.send(resKey);
 //         sendButton(session,resKey);
-        break;
-    }
-//     else if(resKey1){
-//         switch(resKey1) {
-//             case 'ใบลา':
-// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
-//                 break;
-//             case 'สอบ':
-// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอสอบชดใช้","ใบขอสอบชดใช้กรณีป่วย"]);
-//                 break;
-//             case 'เทียบ':
-// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอเทียบโอนรายวิชา","ใบขอเทียบรายวิชา"]);
-//                 break;
-//             default:
-//                 break;
-//         }
+//         break;
 //     }
-    else {
+// //     else if(resKey1){
+// //         switch(resKey1) {
+// //             case 'ใบลา':
+// // //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
+// //                 break;
+// //             case 'สอบ':
+// // //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอสอบชดใช้","ใบขอสอบชดใช้กรณีป่วย"]);
+// //                 break;
+// //             case 'เทียบ':
+// // //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอเทียบโอนรายวิชา","ใบขอเทียบรายวิชา"]);
+// //                 break;
+// //             default:
+// //                 break;
+// //         }
+// //     }
+//     else {
         
-        var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
-        question.forEach(function(questions,index){
-            res += "\n"+questions;
+//         var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
+//         question.forEach(function(questions,index){
+//             res += "\n"+questions;
             
-        });
-        session.send(res);
-    }           
+//         });
+//         session.send(res);
+//     } 
+    
 });           
 // },
 //     function(session, results){
