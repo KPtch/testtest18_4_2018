@@ -160,12 +160,17 @@ bot.dialog('SelectChoice',[
                     var links=dddd[i].link;
                     var comments=dddd[i].comment;
                     var keys = 'ใบ'+dddd[i].key;
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
-                              builder.CardAction.postBack(session, links, keys),
-                              builder.CardAction.postBack(session, comments, 'คำแนะนำ')
-                          ]);
+                    var hCard = new builder.Message(session)
+                        .textFormat(builder.TextFormat.xml)
+                        .attachmentLayout(builder.AttachmentLayout.carousel)
+                        .attachments([
+                            new builder.HeroCard(session)
+                              .title('ต้องการเอกสารนี้ใช่ไหม?')
+                              .buttons([
+                                  builder.CardAction.openUrl(session, links, keys),
+                                  builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
+                              ]);
+                        ]);
 //                     var msg1 = new builder.Message(session).attachments([hCard]);
                     session.send(hCard);
                     
