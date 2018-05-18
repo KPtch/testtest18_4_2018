@@ -162,7 +162,7 @@ bot.dialog('SelectChoice',[
                           .buttons([
 //                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
 //                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-                              builder.CardAction.dialogAction(session, "openUrl", "http://www.bing.com", "Test 2")
+                              builder.CardAction.dialogAction(session, "openUrl", dddd[i].link, "Test 2")
                           ]);
                         
                     var msg1 = new builder.Message(session).attachments([hCard]);
