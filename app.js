@@ -77,8 +77,8 @@ function sendButton(session,req){
                               builder.CardAction.openUrl(session, links, keys),
                               builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
                           ]);
-                    var msg = new builder.Message(session).attachments([hCard]);
-                    session.send(msg);
+                    var msg1 = new builder.Message(session).attachments([hCard]);
+                    session.send(msg1);
                     
                 }                
             }           
@@ -151,6 +151,8 @@ bot.dialog('SelectChoice',[
         });
     },
     function (session, results) {
-        session.endDialog(results.response.entity);
+        var req = results.response.entity;
+        sendButton(session,req);
+        session.endDialog();
     }
 ]);
