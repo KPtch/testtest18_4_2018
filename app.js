@@ -48,20 +48,20 @@ function resKeys(req){
         
     }
 }
-function resKeys1(req){
-    var resKey1 = null;
-    var keys1 = Object.keys(data2);
-    for(var i=0; i<keys1.length; i++){
+// function resKeys1(req){
+//     var resKey1 = null;
+//     var keys1 = Object.keys(data2);
+//     for(var i=0; i<keys1.length; i++){
         
-        var key = keys1[i];
-        var regex = new RegExp(key);
-        if(req.match(regex)){
-            resKey1 = key;       
-            return resKey1;
-        }
+//         var key = keys1[i];
+//         var regex = new RegExp(key);
+//         if(req.match(regex)){
+//             resKey1 = key;       
+//             return resKey1;
+//         }
         
-    }
-}
+//     }
+// }
 function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
