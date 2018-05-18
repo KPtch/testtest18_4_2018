@@ -105,7 +105,7 @@ bot.dialog('/',function (session) {
     if(resKey){
 //         session.send(resKey);
         sendButton(session,resKey);
-        break;
+
     }
 // //     else if(resKey1){
 // //         switch(resKey1) {
