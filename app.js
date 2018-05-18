@@ -73,7 +73,7 @@ function sendButton(session,req){
                           .buttons([
                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ'),
-                              builder.CardAction.postBack(session, '.....', '.....')
+                              builder.CardAction.imBack(session, '.....', '.....')
                           ]);
                     var msg = new builder.Message(session).attachments([hCard]);
                     session.send(msg);
