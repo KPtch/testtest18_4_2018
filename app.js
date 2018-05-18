@@ -104,7 +104,7 @@ bot.dialog('/',function (session) {
     
     if(resKey){
 //         session.send(resKey);
-        sendButton(session,resKey);
+      // sendButton(session,resKey);
         session.beginDialog('SelectChoice');
     }
 // //     else if(resKey1){
