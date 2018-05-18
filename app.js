@@ -67,7 +67,7 @@ function sendButton(session,req){
             var dddd  = snapshot.val();
             
             for(var i=0;i<dddd.length; i++){
-                if(data1[req]==dddd[i].key){
+                if(data1[req]===dddd[i].key){
                     var links=dddd[i].link;
                     var comments=dddd[i].comment;
                     var keys = 'ใบ'+dddd[i].key;
