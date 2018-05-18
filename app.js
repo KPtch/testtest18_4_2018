@@ -107,21 +107,21 @@ bot.dialog('/',function (session) {
         sendButton(session,resKey);
         break;
     }
-    else if(resKey1){
-        switch(resKey1) {
-            case 'ใบลา':
-//                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
-                break;
-            case 'สอบ':
-//                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอสอบชดใช้","ใบขอสอบชดใช้กรณีป่วย"]);
-                break;
-            case 'เทียบ':
-//                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอเทียบโอนรายวิชา","ใบขอเทียบรายวิชา"]);
-                break;
-            default:
-                break;
-        }
-    }
+//     else if(resKey1){
+//         switch(resKey1) {
+//             case 'ใบลา':
+// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
+//                 break;
+//             case 'สอบ':
+// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอสอบชดใช้","ใบขอสอบชดใช้กรณีป่วย"]);
+//                 break;
+//             case 'เทียบ':
+// //                 builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบขอเทียบโอนรายวิชา","ใบขอเทียบรายวิชา"]);
+//                 break;
+//             default:
+//                 break;
+//         }
+//     }
     else {
         
         var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
