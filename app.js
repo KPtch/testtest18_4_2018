@@ -166,8 +166,8 @@ bot.dialog('SelectChoice',[
                               builder.CardAction.postBack(session, links, keys),
                               builder.CardAction.postBack(session, comments, 'คำแนะนำ')
                           ]);
-                    var msg1 = new builder.Message(session).attachments([hCard]);
-                    session.send(msg1);
+//                     var msg1 = new builder.Message(session).attachments([hCard]);
+                    session.send(hCard);
                     
                 }                
             }
