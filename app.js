@@ -67,7 +67,7 @@ function sendButton(session,req){
             var dddd  = snapshot.val();
             
             for(var i=0;i<dddd.length; i++){
-                if(rrr===dddd[i].key){
+                if(req===dddd[i].key){
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
@@ -134,15 +134,7 @@ bot.dialog('/',function (session) {
     } 
     
 });           
-// },
-//     function(session, results){
-//         if (results.response) {
-//             var req = results.response.entity;
-//             sendButton(session,req);
-//             break;
-//         }
-//     }
-// ]);
+
 bot.dialog('SelectChoice',[
     function (session) {
         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|ใบขอลาออก|ใบขอลาพักการศึกษา", {
@@ -151,7 +143,7 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var rrr= resKeys(results.response.entity);
-        sendButton(session,rrr);
+        sendButton(session,data1[rrr]);
         session.endDialog();
 //         var req = results.response.entity;
 //         resKeys(req);
