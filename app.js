@@ -142,3 +142,11 @@ bot.dialog('/',function (session) {
 //         }
 //     }
 // ]);
+bot.dialog('SelectChoice',[
+    function (session) {
+        builder.Prompts.text(session, 'Hi! What is your name?');
+    },
+    function (session, results) {
+        session.endDialog(`Hello ${results.response}!`);
+    }
+]);
