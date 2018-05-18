@@ -106,8 +106,8 @@ bot.dialog('/',function (session) {
     
     if(resKey){
 //         session.send(resKey);
-        sendButton(session,resKey);
-//         session.beginDialog('SelectChoice');
+//         sendButton(session,resKey);
+        session.beginDialog('SelectChoice');
     }
 // //     else if(resKey1){
 // //         switch(resKey1) {
@@ -152,6 +152,26 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         
+        ref.on("value", function (snapshot) {
+            var dddd  = snapshot.val();
+            
+            for(var i=0;i<dddd.length; i++){
+                if(results.response.entity===dddd[i].key){
+                    var links=dddd[i].link;
+                    var comments=dddd[i].comment;
+                    var keys = 'ใบ'+dddd[i].key;
+                    var hCard = new builder.HeroCard(session)
+                          .title('ต้องการเอกสารนี้ใช่ไหม?')
+                          .buttons([
+                              builder.CardAction.openUrl(session, links, keys),
+                              builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
+                          ]);
+                    var msg1 = new builder.Message(session).attachments([hCard]);
+                    session.send(msg1);
+                    
+                }                
+            }           
+     }); 
 //         var req = results.response.entity;
 //         resKeys(req);
 //         sendButton(session,req);
