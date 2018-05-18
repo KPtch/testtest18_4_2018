@@ -122,15 +122,15 @@ bot.dialog('/',function (session) {
 // //                 break;
 // //         }
 // //     }
-//     else {
+    else {
         
-//         var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
-//         question.forEach(function(questions,index){
-//             res += "\n"+questions;
+        var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
+        question.forEach(function(questions,index){
+            res += "\n"+questions;
             
-//         });
-//         session.send(res);
-//     } 
+        });
+        session.send(res);
+    } 
     
 });           
 // },
