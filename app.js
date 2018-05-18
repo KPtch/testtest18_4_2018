@@ -105,7 +105,7 @@ bot.dialog('/',function (session) {
     if(resKey){
 //         session.send(resKey);
         sendButton(session,resKey);
-
+        session.beginDialog('SelectChoice');
     }
 // //     else if(resKey1){
 // //         switch(resKey1) {
@@ -144,7 +144,7 @@ bot.dialog('/',function (session) {
 // ]);
 bot.dialog('SelectChoice',[
     function (session) {
-        builder.Prompts.text(session, 'Hi! What is your name?');
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
     },
     function (session, results) {
         session.endDialog(`Hello ${results.response}!`);
