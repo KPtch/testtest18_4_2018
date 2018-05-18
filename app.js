@@ -48,40 +48,39 @@ function resKeys(req){
         
     }
 }
-// function resKeys1(req){
-//     var resKey1 = null;
-//     var keys1 = Object.keys(data2);
-//     for(var i=0; i<keys1.length; i++){
+function resKeys1(req){
+    var resKey1 = null;
+    var keys1 = Object.keys(data2);
+    for(var i=0; i<keys1.length; i++){
         
-//         var key = keys1[i];
-//         var regex = new RegExp(key);
-//         if(req.match(regex)){
-//             resKey1 = key;       
-//             return resKey1;
-//         }
+        var key = keys1[i];
+        var regex = new RegExp(key);
+        if(req.match(regex)){
+            resKey1 = key;       
+            return resKey1;
+        }
         
-//     }
-// }
+    }
+}
 function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
             
             for(var i=0;i<dddd.length; i++){
-                if(data1[req]===dddd[i].key){
-                    var links=dddd[i].link;
-                    var comments=dddd[i].comment;
-                    var keys = 'ใบ'+dddd[i].key;
+                if(rrr===dddd[i].key){
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, links, keys),
-                              builder.CardAction.openUrl(session, comments, 'คำแนะนำ')
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+//                               builder.CardAction.dialogAction(session, "openUrl", dddd[i].link, "Test 2")
                           ]);
+                        
                     var msg1 = new builder.Message(session).attachments([hCard]);
                     session.send(msg1);
                     
                 }                
-            }           
+            }
      });  
 }
 
@@ -152,25 +151,7 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var rrr= resKeys(results.response.entity);
-        ref.on("value", function (snapshot) {
-            var dddd  = snapshot.val();
-            
-            for(var i=0;i<dddd.length; i++){
-                if(rrr===dddd[i].key){
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
-//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-//                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-                              builder.CardAction.dialogAction(session, "openUrl", dddd[i].link, "Test 2")
-                          ]);
-                        
-                    var msg1 = new builder.Message(session).attachments([hCard]);
-                    session.send(msg1);
-                    
-                }                
-            }
-        });
+        sendButton(session,rrr);
         session.endDialog();
 //         var req = results.response.entity;
 //         resKeys(req);
