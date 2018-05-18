@@ -147,6 +147,6 @@ bot.dialog('SelectChoice',[
         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", ["ใบลา","ใบขอลาออก","ใบขอลาพักการศึกษา"]);
     },
     function (session, results) {
-        session.endDialog(`Hello ${results.response}!`);
+        session.endDialog(${results.response});
     }
 ]);
