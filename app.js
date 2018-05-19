@@ -109,13 +109,13 @@ bot.dialog('/',function (session) {
     }
     else if(resKey1){
         switch(resKey1) {
-            case 'ใบลา':
+            case ใบลา:
                 session.beginDialog('SelectChoice1');
                 break;
-            case 'สอบ':
+            case สอบ:
                 session.beginDialog('SelectChoice2');
                 break;
-            case 'เทียบ':
+            case เทียบ:
                 session.beginDialog('SelectChoice3');
                 break;
             default:
