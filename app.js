@@ -101,21 +101,22 @@ bot.dialog('/',function (session) {
     var resKey1 = resKeys1(req);
     
     session.send(resKey);
-    session.send(resKey1);
+    
     
     if(resKey){
         sendButton(session,data1[resKey]);
         
     }
     else if(resKey1){
+        session.send(resKey1);
         switch(resKey1) {
-            case ใบลา:
+            case "ใบลา":
                 session.beginDialog('SelectChoice1');
                 break;
-            case สอบ:
+            case "สอบ":
                 session.beginDialog('SelectChoice2');
                 break;
-            case เทียบ:
+            case "เทียบ":
                 session.beginDialog('SelectChoice3');
                 break;
             default:
