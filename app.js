@@ -111,13 +111,13 @@ bot.dialog('/',function (session) {
         session.send(resKey1);
         switch(resKey1) {
             case "ใบลา":
-                session.beginDialog('SelectChoice1');
+                session.beginDialog('SelectChoice');
                 break;
             case "สอบ":
-                session.beginDialog('SelectChoice1');
+                session.beginDialog('ChooseChoice');
                 break;
             case "เทียบ":
-                session.beginDialog('SelectChoice1');
+                session.beginDialog('PickChoice');
                 break;
             default:
                 break;
@@ -135,7 +135,7 @@ bot.dialog('/',function (session) {
     
 });           
 
-bot.dialog('SelectChoice1',[
+bot.dialog('SelectChoice',[
     function (session) {
         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|ใบขอลาออก|ใบขอลาพักการศึกษา", {
             listStyle: builder.ListStyle.button
@@ -148,29 +148,29 @@ bot.dialog('SelectChoice1',[
         
     }
 ]);
-// bot.dialog('SelectChoice2',[
-//     function (session) {
-//         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้|ใบขอสอบชดใช้กรณีป่วย", {
-//             listStyle: builder.ListStyle.button
-//         });
-//     },
-//     function (session, results) {
-//         var rrrr= resKeys(results.response.entity);
-//         sendButton(session,data1[rrrr]);
-//         session.endDialog();
+bot.dialog('ChooseChoice',[
+    function (session) {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้|ใบขอสอบชดใช้กรณีป่วย", {
+            listStyle: builder.ListStyle.button
+        });
+    },
+    function (session, results) {
+        var rrrr= resKeys(results.response.entity);
+        sendButton(session,data1[rrrr]);
+        session.endDialog();
         
-//     }
-// ]);
-// bot.dialog('SelectChoice3',[
-//     function (session) {
-//         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา|ใบขอเทียบรายวิชา", {
-//             listStyle: builder.ListStyle.button
-//         });
-//     },
-//     function (session, results) {
-//         var rrrrr= resKeys(results.response.entity);
-//         sendButton(session,data1[rrrrr]);
-//         session.endDialog();
+    }
+]);
+bot.dialog('PickChoice',[
+    function (session) {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา|ใบขอเทียบรายวิชา", {
+            listStyle: builder.ListStyle.button
+        });
+    },
+    function (session, results) {
+        var rrrrr= resKeys(results.response.entity);
+        sendButton(session,data1[rrrrr]);
+        session.endDialog();
         
-//     }
-// ]);
+    }
+]);
