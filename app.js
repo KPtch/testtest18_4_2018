@@ -114,10 +114,10 @@ bot.dialog('/',function (session) {
                 session.beginDialog('SelectChoice1');
                 break;
             case "สอบ":
-                session.beginDialog('SelectChoice2');
+                session.beginDialog('SelectChoice1');
                 break;
             case "เทียบ":
-                session.beginDialog('SelectChoice3');
+                session.beginDialog('SelectChoice1');
                 break;
             default:
                 break;
@@ -148,29 +148,29 @@ bot.dialog('SelectChoice1',[
         
     }
 ]);
-bot.dialog('SelectChoice2',[
-    function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้|ใบขอสอบชดใช้กรณีป่วย", {
-            listStyle: builder.ListStyle.button
-        });
-    },
-    function (session, results) {
-        var rrrr= resKeys(results.response.entity);
-        sendButton(session,data1[rrrr]);
-        session.endDialog();
+// bot.dialog('SelectChoice2',[
+//     function (session) {
+//         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้|ใบขอสอบชดใช้กรณีป่วย", {
+//             listStyle: builder.ListStyle.button
+//         });
+//     },
+//     function (session, results) {
+//         var rrrr= resKeys(results.response.entity);
+//         sendButton(session,data1[rrrr]);
+//         session.endDialog();
         
-    }
-]);
-bot.dialog('SelectChoice3',[
-    function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา|ใบขอเทียบรายวิชา", {
-            listStyle: builder.ListStyle.button
-        });
-    },
-    function (session, results) {
-        var rrrrr= resKeys(results.response.entity);
-        sendButton(session,data1[rrrrr]);
-        session.endDialog();
+//     }
+// ]);
+// bot.dialog('SelectChoice3',[
+//     function (session) {
+//         builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา|ใบขอเทียบรายวิชา", {
+//             listStyle: builder.ListStyle.button
+//         });
+//     },
+//     function (session, results) {
+//         var rrrrr= resKeys(results.response.entity);
+//         sendButton(session,data1[rrrrr]);
+//         session.endDialog();
         
-    }
-]);
+//     }
+// ]);
