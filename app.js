@@ -109,7 +109,7 @@ bot.dialog('/',function (session) {
     }
     else if(resKey1){
         session.send(resKey1);
-        switch(resKey1) {
+        switch(data2[resKey1]) {
             case "ใบลา":
                 session.beginDialog('SelectChoice');
                 break;
