@@ -7,6 +7,7 @@ var data1        = require('./respond.json');
 var data2        = require('./Case3.json');
 var question    = require('./question.json');
 var firebase    = require('firebase');
+var openUrl     = require('openurl');
 // const botBuilder = require('claudia-bot-builder');
 const fbTemplate = require('fb-message-builder');
 const bbnt = builder.fbTemplate;
