@@ -137,7 +137,7 @@ bot.dialog('/',function (session) {
 
 bot.dialog('SelectChoice',[
     function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|ใบขอลาออก|ใบขอลาพักการศึกษา", {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|https://developers.facebook.com/docs/messenger-platform/send-messages/template/button|ใบขอลาพักการศึกษา", {
             listStyle: builder.ListStyle.button
         });
     },
