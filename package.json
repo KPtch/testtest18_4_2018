@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "botbuilder": "^3.5.1",
+    "facebook-chat-api": "^1.5.1",
     "fb-message-builder": "^2.2.0",
     "firebase": "^4.13.1",
     "mongodb": "^2.2.19",
