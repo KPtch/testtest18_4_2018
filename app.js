@@ -76,7 +76,7 @@ function sendButton(session,req){
 //                               builder.CardAction.dialogAction(session, "imBack", "Um", ".......")
 //                               builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
 //                               builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ')
-                          ]).tap(builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key));
+                          ]).tap(builder.CardAction.openUrl(session, dddd[i].link));
                         
                     var msg1 = new builder.Message(session).attachments([hCard]);
                     session.send(msg1);
