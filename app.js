@@ -162,7 +162,26 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var rrr= resKeys(results.response.entity);
-        sendButton(session,data1[rrr]);
+        ref.on("value", function (snapshot) {
+            var dddd  = snapshot.val();
+            
+            for(var i=0;i<dddd.length; i++){
+                if(data1[rrr]===dddd[i].key){
+                    var hCard = new builder.HeroCard(session)
+                          .title('ต้องการเอกสารนี้ใช่ไหม?')
+                          .buttons([
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              
+                          ]);
+                    
+                    var msg1 = new builder.Message(session).attachments([hCard]);
+                    session.send(msg1);
+                    
+                }                
+            }
+       });
+//         sendButton(session,data1[rrr]);
         session.endDialog();
         
     }
