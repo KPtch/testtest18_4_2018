@@ -71,13 +71,28 @@ function sendButton(session,req){
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              
+                              {
+                                    type: "url",
+                                    value: dddd[i].link,
+                                    title: "ใบ"+dddd[i].key
+                              },
+                              {
+                                    type: "url",
+                                    value: dddd[i].comment,
+                                    title: "คำแนะน"
+                              }
+                              
+//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+//                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              
 //                               builder.CardAction.dialogAction(session, "imBack", "Um", ".......")
+                              
 //                               builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
 //                               builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ')
-                          ]).tap(builder.CardAction.openUrl(session, dddd[i].link))
-                            .tap(builder.CardAction.openUrl(session, dddd[i].comment));
+                          ])
+//                             .tap(builder.CardAction.openUrl(session, dddd[i].link))
+//                             .tap(builder.CardAction.openUrl(session, dddd[i].comment));
                         
                     var msg1 = new builder.Message(session).attachments([hCard]);
                     session.send(msg1);
