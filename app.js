@@ -72,19 +72,19 @@ function sendButton(session,req){
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
                               
-                              {
-                                    type: "url",
-                                    value: dddd[i].link,
-                                    title: "ใบ"+dddd[i].key
-                              },
-                              {
-                                    type: "url",
-                                    value: dddd[i].comment,
-                                    title: "คำแนะน"
-                              }
+//                               {
+//                                     type: "url",
+//                                     value: dddd[i].link,
+//                                     title: "ใบ"+dddd[i].key
+//                               },
+//                               {
+//                                     type: "url",
+//                                     value: dddd[i].comment,
+//                                     title: "คำแนะนำ"
+//                               }
                               
-//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-//                               builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
                               
 //                               builder.CardAction.dialogAction(session, "imBack", "Um", ".......")
                               
