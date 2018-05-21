@@ -71,9 +71,9 @@ function sendButton(session,req){
                     var hCard = new builder.HeroCard(session)
                           .title('ต้องการเอกสารนี้ใช่ไหม?')
                           .buttons([
-                              builder.CardAction.openUrl(session, 'dddd[i].link', 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, 'dddd[i].comment', 'คำแนะนำ')
-//                               builder.CardAction.dialogAction(session, "openUrl", dddd[i].link, "Test 2")
+                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
+                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ'),
+                              builder.CardAction.dialogAction(session, "imBack", "Um", ".......")
                           ]);
                         
                     var msg1 = new builder.Message(session).attachments([hCard]);
