@@ -90,7 +90,7 @@ function sendButton(session,req){
                               
 //                               builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
 //                               builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ')
-                          ])
+                          ]);
 //                             .tap(builder.CardAction.openUrl(session, dddd[i].link))
 //                             .tap(builder.CardAction.openUrl(session, dddd[i].comment));
                         
