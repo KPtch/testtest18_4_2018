@@ -69,8 +69,8 @@ function sendButton(session,req){
             for(var i=0;i<dddd.length; i++){
                 if(req===dddd[i].key){
                     var hCard = 'ต้องการเอกสารนี้ใช่ไหม?'+'\n';
-                    var hh = "\n"+'ใบ'+dddd[i].key+' : ['+dddd[i].link+' ]';
-                    var hhh = "\n"+'คำแนะนำ : ['+dddd[i].comment+' ]';
+                    var hh = "\n"+'ใบ'+dddd[i].key+'  :  [ '+dddd[i].link+' ]';
+                    var hhh = "\n"+'คำแนะนำ  :  [ '+dddd[i].comment+' ]';
                     hCard += hh+hhh;
 //                           .buttons([
                               
