@@ -5,6 +5,7 @@ var restify     = require('./restify');
 var builder     = require('./botbuilder');
 var data1        = require('./respond.json');
 var data2        = require('./Case3.json');
+var data3        = require('./case4.json');
 var question    = require('./question.json');
 var firebase    = require('./firebase');
 // const botBuilder = require('claudia-bot-builder');
@@ -62,6 +63,20 @@ function resKeys1(req){
         
     }
 }
+function resKeys2(req){
+    let resKey1 = null
+    let keys1 = Object.keys(data3)
+    for(let i=0; i<keys1.length; i++){
+        
+        let key = keys1[i]
+        let regex = new RegExp(key)
+        if(req.match(regex)){
+            resKey1 = key    
+            return resKey1
+        }
+        
+    }
+}
 function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
@@ -103,7 +118,7 @@ bot.dialog('/',function (session) {
     var req = session.message.text;
     var resKey = resKeys(req);
     var resKey1 = resKeys1(req);
-    
+    var resKey2 = resKeys2(req);
 //     session.send(resKey);
     
     
@@ -129,12 +144,18 @@ bot.dialog('/',function (session) {
     }
     else {
         
-        var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
-        question.forEach(function(questions,index){
-            res += "\n"+questions;
-            
-        });
-        session.send(res);
+        if(resKey2){
+            session.send(data3[resKey2]);
+        }else{
+            var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
+            question.forEach(function(questions,index){
+                res += "\n"+questions;
+
+            });
+            session.send(res);
+        }
+        
+        
     } 
     
 });           
