@@ -68,34 +68,20 @@ function sendButton(session,req){
             
             for(var i=0;i<dddd.length; i++){
                 if(req===dddd[i].key){
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
+                    var hCard = 'ต้องการเอกสารนี้ใช่ไหม?'+'\n';
+                    var hh = "\n"+'ใบ'+dddd[i].key+' : ['+dddd[i].link+' ]';
+                    var hhh = "\n"+'คำแนะนำ : ['+dddd[i].comment+' ]';
+                    hCard += hh+hhh;
+//                           .buttons([
                               
-//                               {
-//                                     type: "url",
-//                                     value: dddd[i].link,
-//                                     title: "ใบ"+dddd[i].key
-//                               },
-//                               {
-//                                     type: "url",
-//                                     value: dddd[i].comment,
-//                                     title: "คำแนะนำ"
-//                               }
                               
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-                              
-//                               builder.CardAction.dialogAction(session, "imBack", "Um", ".......")
-                              
-//                               builder.CardAction.imBack(session, dddd[i].link, 'ใบ'+dddd[i].key),
+//                               builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
 //                               builder.CardAction.imBack(session, dddd[i].comment, 'คำแนะนำ')
-                          ]);
-//                             .tap(builder.CardAction.openUrl(session, dddd[i].link))
-//                             .tap(builder.CardAction.openUrl(session, dddd[i].comment));
+                              
+//                           ]);
                         
-                    var msg1 = new builder.Message(session).attachments([hCard]);
-                    session.send(msg1);
+//                     var msg1 = new builder.Message(session).attachments([hCard]);
+                    session.send(hCard);
                     
                 }                
             }
@@ -162,28 +148,9 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var rrr= resKeys(results.response.entity);
-        ref.on("value", function (snapshot) {
-            var dddd  = snapshot.val();
-            
-            for(var i=0;i<dddd.length; i++){
-                if(data1[rrr]===dddd[i].key){
-                    var hCard = new builder.HeroCard(session)
-                          .title('ต้องการเอกสารนี้ใช่ไหม?')
-                          .buttons([
-                              builder.CardAction.openUrl(session, dddd[i].link, 'ใบ'+dddd[i].key),
-                              builder.CardAction.openUrl(session, dddd[i].comment, 'คำแนะนำ')
-                              
-                          ]);
-                    
-                    var msg1 = new builder.Message(session).attachments([hCard]);
-                    session.send(msg1);
-                    
-                }                
-            }
-       });
-//         sendButton(session,data1[rrr]);
+        sendButton(session,data1[rrr]);
         session.endDialog();
-        
+       
     }
 ]);
 bot.dialog('ChooseChoice',[
