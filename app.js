@@ -104,7 +104,7 @@ bot.dialog('/',function (session) {
     var resKey = resKeys(req);
     var resKey1 = resKeys1(req);
     
-    session.send(resKey);
+//     session.send(resKey);
     
     
     if(resKey){
@@ -112,7 +112,7 @@ bot.dialog('/',function (session) {
         
     }
     else if(resKey1){
-        session.send(resKey1);
+//         session.send(resKey1);
         switch(data2[resKey1]) {
             case "ใบลา":
                 session.beginDialog('SelectChoice');
