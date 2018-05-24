@@ -62,20 +62,6 @@ function resKeys1(req){
         
     }
 }
-function resKeys2(req){
-    let resKey1 = null
-    let keys1 = Object.keys(data3)
-    for(let i=0; i<keys1.length; i++){
-        
-        let key = keys1[i]
-        let regex = new RegExp(key)
-        if(req.match(regex)){
-            resKey1 = key    
-            return resKey1
-        }
-        
-    }
-}
 function sendButton(session,req){
     ref.on("value", function (snapshot) {
             var dddd  = snapshot.val();
@@ -117,7 +103,6 @@ bot.dialog('/',function (session) {
     var req = session.message.text;
     var resKey = resKeys(req);
     var resKey1 = resKeys1(req);
-    var resKey2 = resKeys2(req);
 //     session.send(resKey);
     
     
