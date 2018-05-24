@@ -142,7 +142,7 @@ bot.dialog('/',function (session) {
 
 bot.dialog('SelectChoice',[
     function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ|ใบขอลาออก|ใบขอลาพักการศึกษา", {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบลาป่วย/กิจ | ใบขอลาออก | ใบขอลาพักการศึกษา", {
             builder.ListStyle.button
         });
     },
@@ -156,7 +156,7 @@ bot.dialog('SelectChoice',[
 ]);
 bot.dialog('ChooseChoice',[
     function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้|ใบขอสอบชดใช้กรณีป่วย", {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอสอบชดใช้ | ใบขอสอบชดใช้กรณีป่วย", {
             builder.ListStyle.button
         });
     },
@@ -170,7 +170,7 @@ bot.dialog('ChooseChoice',[
 ]);
 bot.dialog('PickChoice',[
     function (session) {
-        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา|ใบขอเทียบรายวิชา", {
+        builder.Prompts.choice(session, "เลือกใบที่ต้องการ", "ใบขอเทียบโอนรายวิชา | ใบขอเทียบรายวิชา", {
             builder.ListStyle.button
         });
     },
