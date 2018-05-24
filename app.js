@@ -5,7 +5,6 @@ var restify     = require('./restify');
 var builder     = require('./botbuilder');
 var data1        = require('./respond.json');
 var data2        = require('./Case3.json');
-var data3        = require('./case4.json');
 var question    = require('./question.json');
 var firebase    = require('./firebase');
 // const botBuilder = require('claudia-bot-builder');
@@ -144,16 +143,12 @@ bot.dialog('/',function (session) {
     }
     else {
         
-        if(resKey2){
-            session.send(data3[resKey2]);
-        }else{
-            var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
-            question.forEach(function(questions,index){
-                res += "\n"+questions;
+        var res = 'สวัสดีจ้าา เราคือบอท KunSri'+'\n';
+        question.forEach(function(questions,index){
+            res += "\n"+questions;
 
-            });
-            session.send(res);
-        }
+        });
+        session.send(res);
         
         
     } 
