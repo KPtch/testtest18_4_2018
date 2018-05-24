@@ -147,11 +147,11 @@ bot.dialog('SelectChoice',[
         });
     },
     function (session, results) {
-        var rrr= resKeys(results.response.entity);
-        session.send(rrr);
-        sendButton(session,data1[rrr]);
-        session.endDialog();
-       
+        if(results.response){
+            var rrr= resKeys(results.response.entity);
+            sendButton(session,data1[rrr]);
+            session.endDialog();
+        }
     }
 ]);
 bot.dialog('ChooseChoice',[
@@ -161,11 +161,11 @@ bot.dialog('ChooseChoice',[
         });
     },
     function (session, results) {
-        var rrrr= resKeys(results.response.entity);
-        session.send(rrrr);
-        sendButton(session,data1[rrrr]);
-        session.endDialog();
-        
+        if(results.response){
+            var rrrr= resKeys(results.response.entity);
+            sendButton(session,data1[rrrr]);
+            session.endDialog();
+        }
     }
 ]);
 bot.dialog('PickChoice',[
@@ -175,10 +175,10 @@ bot.dialog('PickChoice',[
         });
     },
     function (session, results) {
-        var rrrrr= resKeys(results.response.entity);
-        session.send(rrrrr);
-        sendButton(session,data1[rrrrr]);
-        session.endDialog();
-        
+        if(results.response){
+            var rrrrr= resKeys(results.response.entity);
+            sendButton(session,data1[rrrrr]);
+            session.endDialog();
+        }
     }
 ]);
