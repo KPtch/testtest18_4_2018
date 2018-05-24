@@ -103,15 +103,15 @@ bot.dialog('/',function (session) {
     var req = session.message.text;
     var resKey = resKeys(req);
     var resKey1 = resKeys1(req);
-//     session.send(resKey);
-    
+    session.send(resKey);
+    session.send(resKey1);
     
     if(resKey){
         sendButton(session,data1[resKey]);
         
     }
     else if(resKey1){
-//         session.send(resKey1);
+        session.send(resKey1);
         switch(data2[resKey1]) {
             case "ใบลา":
                 session.beginDialog('SelectChoice');
@@ -148,6 +148,7 @@ bot.dialog('SelectChoice',[
     },
     function (session, results) {
         var rrr= resKeys(results.response.entity);
+        session.send(rrr);
         sendButton(session,data1[rrr]);
         session.endDialog();
        
@@ -161,6 +162,7 @@ bot.dialog('ChooseChoice',[
     },
     function (session, results) {
         var rrrr= resKeys(results.response.entity);
+        session.send(rrrr);
         sendButton(session,data1[rrrr]);
         session.endDialog();
         
@@ -174,6 +176,7 @@ bot.dialog('PickChoice',[
     },
     function (session, results) {
         var rrrrr= resKeys(results.response.entity);
+        session.send(rrrrr);
         sendButton(session,data1[rrrrr]);
         session.endDialog();
         
